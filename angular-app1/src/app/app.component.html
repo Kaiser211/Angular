@@ -1,0 +1,58 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div >
+
+
+{{ title }}
+{{ name }}
+{{ 9 + 2}}
+{{ 2 < 9}}
+{{ 2 > 9}}
+
+{{ doSomething()}}
+<p>{{ current_user | json }}</p>
+<!-- // Reall good for debugging....
+ -->
+  <table [ngClass] = "{ 'green': mySwitch, 'red': !mySwitch }">
+  		<tr *ngIf="mySwitch" [ngStyle]="myDefaultStyle">
+  			<th>Name:</th>
+  			<th>Email:</th>
+  		</tr>
+  		<tr *ngFor="let user of users">
+  			<td>{{ user.name }}</td>
+  			<td>{{ user.email }}</td>
+  			
+  		</tr>
+  </table>
+  <div>
+  		<form>
+  			<div>
+  				<label>Name:</label>
+  				<input type="text" name="name" [value]="current_user.name">
+  			</div>
+  			<input type="text">
+  		</form>
+  </div>
+  <div>
+  	<input type="text" [value]="users[0].name" >
+  </div>
+  <div *ngIf="mySwitch" [ngStyle]="myDefaultStyle">
+  	<h1>My Secret Thing</h1>
+  </div>
+  <div>
+  	<button (click)="activateSwitch()">Make it disappear</button>
+  </div>
+
+  <app-hello-component></app-hello-component>
+  <app-hello-component></app-hello-component>
+  <app-hello-component></app-hello-component>
+  <app-hello-component></app-hello-component>
+  <app-hello-component></app-hello-component>
+  
+  
+<!-- <app-header-component></app-header-component>
+<app-nav-component></app-nav-component>
+<app-main-component></app-main-component>
+<app-footer-component></app-footer-component> -->
+
+</div>

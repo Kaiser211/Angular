@@ -1,0 +1,63 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div  style="text-align:center">
+  <h1> Welcome to {{ title }}!</h1>
+  <h3>Hi, my name is {{ myName}}</h3>
+  <button (click)="myName = 'Kaiser'">Become Kaiser</button>
+  <button (click)="clickedButton()">Click Me</button>
+  </div>
+  <div>
+  	  <form (submit)="submitForm()" #formData="ngForm">
+  	  	  <div>
+  	  	  	<label>Name:</label>
+  	  	  	<input type="text" name="name" [(ngModel)]="newUser.name" 
+  	  	  	required
+  	  	  	minlength="5" 
+  	  	  	#name="ngModel">
+  	  	  	{{ name.errors | json }}
+  	  	  	<!-- <p>{{ name.errors | json }}</p>
+  	  	  	<p>{{ name.valid | json }}</p> -->
+  	  	  	<p>{{ name.touched | json }} </p>
+  	  	  	<p [ngStyle]="{ 'color': 'red' }" *ngIf="name.errors && name.errors.required && name.touched "> Name cannot be blank</p>
+  	  	  	<p [ngStyle]="{ 'color': 'red' }" *ngIf="name.errors && name.errors.minlength" > Name must be at least {{ name.errors.minlength.requiredLength }} characters</p>
+  	  	  </div>
+  	  	  <div>
+  	  	  	<label>Email:</label>
+  	  	  	<input type="text" name="email" [(ngModel)]="newUser.email">
+  	  	  </div>
+  	  	  <!-- <input type="text" name="name" [(ngModel)]="newUser.name"> -->
+  	  	  <input *ngIf="formData.valid == false" disabled type="submit" name="submit">
+  	  	  <input *ngIf="formData.valid" type="submit" name="submit">
+  	  	  {{ formData.valid | json }}
+  	  </form>	
+  </div>
+  <div>
+  	  <table>
+  	  	  <tr>
+  	  	  	  <th>Name:</th>
+  	  	  	  <th>Email:</th>
+  	  	  </tr>
+  	  	  <tr *ngFor="let user of users">
+  	  	  	  <td>{{ user.name }}</td>
+  	  	  	  <td>{{ user.email }}</td>
+  	  	  	
+  	  	  </tr>
+  	  </table>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
